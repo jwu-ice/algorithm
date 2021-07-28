@@ -1,5 +1,6 @@
 var fs = require("fs");
 var input = fs.readFileSync("dev/stdin").toString().trim().split("\n");
+
 // 계산식
 let stack = [];
 for (i = 1; i <= input[0]; i++) {

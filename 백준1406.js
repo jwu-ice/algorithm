@@ -6,6 +6,7 @@ var input = fs
   .split("\n")
   .map((a) => a);
 
+// 계산식
 let left = [];
 let right = [];
 

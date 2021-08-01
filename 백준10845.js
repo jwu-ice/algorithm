@@ -30,4 +30,4 @@ for (let i = 1; i <= countInput; i++) {
 result = result.trim();
 console.log(result);
 
-// 큐를 구현해서 만들었어야 함.
+// 큐를 구현해서 만들었어야 했나보당

@@ -1,7 +1,6 @@
 function solution(progresses, speeds) {
   var answer = [];
   let progressess = progresses;
-  let stack = [];
   let time = [];
   let n = 0;
   let count = 0;
@@ -20,7 +19,7 @@ function solution(progresses, speeds) {
     }
     answer.push(n);
   }
-
+  console.log("answer :>> ", answer);
   return answer;
 }
 

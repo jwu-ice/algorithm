@@ -2,14 +2,14 @@ function solution(n) {
   let result = [];
   while (n > 0) {
     if (n % 3 === 0) {
-      result.push(4);
+      result = [4, ...result];
       n = parseInt(n / 3) - 1;
     } else {
-      result.push(n % 3);
+      result = [n % 3, ...result];
       n = parseInt(n / 3);
     }
   }
-  return result.reverse().join("");
+  return result.join("");
 }
 
 solution(15);

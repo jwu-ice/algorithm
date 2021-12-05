@@ -29,3 +29,13 @@ solution([
   "Enter uid1234 Prodo",
   "Change uid4567 Ryan",
 ]);
+
+/**
+ * 프로그래머스의 다른 사람들 풀이를 보니 정말 넓게 봐야 한다는 것을 깨달았다.
+ * 분해구조할당을 써서 const [state, id, nick] = v.split(" "); 나누는 것
+ * 객체에 const stateMapping = {
+        'Enter': '님이 들어왔습니다.',
+        'Leave': '님이 나갔습니다.'
+    }
+    이런식으로 할당해서 쓰기 쉽게 재사용하는 것.
+ */

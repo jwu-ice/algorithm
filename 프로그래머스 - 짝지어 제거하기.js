@@ -1,30 +1,13 @@
-function solution(s) {
-  let answer = 0;
-
-  search(s);
-
-  function search(str) {
-    let res = "";
-    let arr = str.split("");
-    let check = 0;
-    if (!arr) {
-      return answer++;
+function solution(str) {
+  let stack = [];
+  for (const char of str) {
+    if (stack[stack.length - 1] === char) {
+      stack.pop();
+      continue;
     }
-    for (let i = 0; i < arr.length; i++) {
-      if (arr[i] === arr[i + 1]) {
-        arr[i] = "";
-        arr[i + 1] = "";
-        res = arr.join("");
-        check++;
-        console.log(res);
-      }
-    }
-    if (!check) return;
-    // 재귀함수
-    search(res);
+    stack.push(char);
   }
-  console.log("answer :>> ", answer);
-  return answer;
+  return stack.length ? 0 : 1;
 }
 
-solution(`baabaa`);
+console.log(solution(`baabaa`));

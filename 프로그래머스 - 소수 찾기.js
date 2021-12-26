@@ -17,7 +17,7 @@ function solution(num) {
       console.log("j: ", j);
     }
   }
-  console.log(arr);
+  console.table(arr);
   for (let i = 2; i <= num; i++) {
     if (arr[i] !== 0) {
       answer++;

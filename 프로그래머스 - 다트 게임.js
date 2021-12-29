@@ -14,9 +14,6 @@ function solution(dartResult) {
     },
   };
 
-  let darts = dartResult.match(/\d.?\D/g);
-  console.log("darts :>> ", darts);
-
   const totalArr = dartResult.split("").reduce((prev, curr, i) => {
     if (/[SDT]/.test(curr)) {
       const isTen = dartResult[i - 2] === "1" && dartResult[i - 1] === "0";

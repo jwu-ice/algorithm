@@ -14,15 +14,11 @@ function solution(dartResult) {
     },
   };
 
-  let darts = dartResult.match(/\d.?\D/g);
-  console.log("darts :>> ", darts);
-
   const totalArr = dartResult.split("").reduce((prev, curr, i) => {
     if (/[SDT]/.test(curr)) {
       const isTen = dartResult[i - 2] === "1" && dartResult[i - 1] === "0";
       prev.push(Math.pow((isTen ? 10 : 0) || +dartResult[i - 1], calc[curr]));
     }
-
     if (/[*#]/.test(curr)) {
       calc[curr](prev);
     }

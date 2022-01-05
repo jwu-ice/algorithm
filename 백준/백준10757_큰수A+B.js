@@ -1,7 +1,7 @@
-// var fs = require("fs");
-// var input = fs.readFileSync("/dev/stdin", "utf8").toString().trim().split(" ");
+var fs = require("fs");
+var input = fs.readFileSync("/dev/stdin", "utf8").toString().trim().split(" ");
 
-solution(["1", "999"]);
+solution(input);
 function solution(input) {
   let [x, y] = input;
   x = x.split("");

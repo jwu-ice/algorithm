@@ -2,10 +2,14 @@ const input = require("fs")
   .readFileSync("/dev/stdin")
   .toString()
   .split(" ")
-  .map((v) => v.trim());
+  .map(Number);
 
-solution(`3 2`.split(" ").map((v) => v.trim()));
+solution(`5 8 4`.toString().split(" ").map(Number));
 
 function solution(input) {
-  console.log(input[0] - input[1]);
+  const [a, b, c] = input;
+  console.log((a + b) % c);
+  console.log(((a % c) + (b % c)) % c);
+  console.log((a * b) % c);
+  console.log(((a % c) * (b % c)) % c);
 }

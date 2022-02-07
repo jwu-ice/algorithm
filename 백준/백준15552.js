@@ -1,8 +1,4 @@
-// const input = require("fs")
-//   .readFileSync("/dev/stdin")
-//   .toString()
-//   .split("\n")
-//   .map(Number);
+const input = require("fs").readFileSync("/dev/stdin").toString().split("\n");
 
 solution(
   `5

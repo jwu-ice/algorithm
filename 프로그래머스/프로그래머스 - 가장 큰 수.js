@@ -1,21 +1,21 @@
 function solution(numbers) {
-  const getPermutation = (numbers) => {
-    const result = [];
-    if (numbers.length === 1) {
-      return numbers.map((a) => [a]);
-    }
+    const getPermutation = (numbers) => {
+        const result = [];
+        if (numbers.length === 1) {
+            return numbers.map((a) => [a]);
+        }
 
-    numbers.forEach((value, index, arr) => {
-      const rest = [...arr.slice(0, index), ...arr.slice(index + 1)];
-      const permutations = getPermutation(rest);
-      const attached = permutations.map((a) => [value, ...a]);
-      result.push(...attached);
-    });
-    return result;
-  };
+        numbers.forEach((value, index, arr) => {
+            const rest = [...arr.slice(0, index), ...arr.slice(index + 1)];
+            const permutations = getPermutation(rest);
+            const attached = permutations.map((a) => [value, ...a]);
+            result.push(...attached);
+        });
+        return result;
+    };
 
-  const res = getPermutation(numbers).map((a) => a.join(""));
-  return String(res.sort((a, b) => a - b)[res.length - 1]);
+    const res = getPermutation(numbers).map((a) => a.join(""));
+    return String(res.sort((a, b) => a - b)[res.length - 1]);
 }
 // 문자열로 바꾸어 리턴
 solution([3, 30, 34, 5, 9]);

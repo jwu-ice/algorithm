@@ -1,30 +1,54 @@
+// 트리 + 완전탐색
 function solution(n, wires) {
-    let minCount = 100;
+    const links = {};
+    wires.map((w) => {
+        // 풀이과정 1
+        const [a, b] = w;
+        if (!links[a]) links[a] = [];
+        if (!links[b]) links[b] = [];
+        links[a].push(b);
+        links[b].push(a);
+    });
 
-    for (let i = 0; i < wires.length; i++) {
-        const path = [];
-        const graph = Array.from({ length: n + 1 }, () => Array(n + 1).fill(0));
-        const visited = Array.from({ length: n + 1 }, () => false);
+    const searchTree = (root, exception) => {
+        let count = 0;
+        const queue = [root];
+        const visited = [];
+        visited[root] = true;
 
-        for (let j = 0; j < wires.length; j++) {
-            if (j === i) {
-                continue;
-            }
+        while (queue.length) {
+            const curr = queue.pop();
+            links[curr].map((next) => {
+                if (next !== exception && !visited[next]) {
+                    visited[next] = true;
+                    queue.push(next);
+                }
+            });
 
-            const [x, y] = wires[j];
-
-            graph[x][y] = 1;
-            graph[y][x] = 1;
-            console.log("graph", graph);
+            count++;
         }
-    }
+        return count;
+    };
+
+    let answer = 100;
+
+    wires.map((w, i) => {
+        const [a, b] = w;
+        const diff = Math.abs(searchTree(a, b) - searchTree(b, a));
+        answer = answer > diff ? diff : answer;
+    });
+
+    console.log("answer", answer);
+    return answer;
 }
 
-solution(7, [
-    [1, 2],
-    [2, 7],
-    [3, 7],
+solution(9, [
+    [1, 3],
+    [2, 3],
     [3, 4],
     [4, 5],
-    [6, 7],
+    [4, 6],
+    [4, 7],
+    [7, 8],
+    [7, 9],
 ]);

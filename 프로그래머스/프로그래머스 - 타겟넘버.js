@@ -13,8 +13,7 @@ function solution(numbers, target) {
     dfs(index + 1, sum + numbers[index]);
     dfs(index + 1, sum - numbers[index]);
   }
-
   return answer;
 }
 
-solution([1, 1, 1, 1, 1], 3);
+solution([4, 1, 2, 1], 4);

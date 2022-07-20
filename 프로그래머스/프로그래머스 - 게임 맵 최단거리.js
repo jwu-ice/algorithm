@@ -28,6 +28,7 @@ function solution(maps) {
       }
     });
   }
+
   return visited[MAP_HEIGHT - 1][MAP_WIDTH - 1] === 1 ? -1 : visited[MAP_HEIGHT - 1][MAP_WIDTH - 1];
 }
 

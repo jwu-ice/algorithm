@@ -4,13 +4,16 @@
 //   .trim()
 //   .split(" ")
 
-const input = `5`.toString().trim();
+const N = Number(`1`.toString().trim());
 
-const cards = [...Array(Number(input))].map((_, i) => i + 1);
+let twoSquare = 0;
 
-while (cards.length > 1) {
-  cards.shift();
-  cards.push(cards.shift());
+for (let i = 0; twoSquare < 500000; i++) {
+  twoSquare = 2 ** i;
+
+  if (twoSquare >= N) {
+    break;
+  }
 }
-
-console.log(cards[0]);
+const startNumber = N - twoSquare / 2;
+console.log(2 * startNumber);

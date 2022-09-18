@@ -37,13 +37,11 @@ function dfs(v, result = [], visited = Array(N + 1).fill(0)) {
   }
 
   visited[v] = 1;
-  let results = [...result, v];
+  result.push(v);
 
   for (let i = 1; i <= N; i++) {
     if (visited[i] === 0 && graph[v][i]) {
-      console.log(result);
-      console.log(results);
-      dfs(i, results, visited);
+      dfs(i, result, visited);
     }
   }
 
@@ -52,7 +50,7 @@ function dfs(v, result = [], visited = Array(N + 1).fill(0)) {
 
 function bfs(v) {
   const queue = [];
-  let result = "";
+  const result = [];
   const visited = Array(N + 1).fill(0);
 
   queue.push(v);
@@ -60,7 +58,7 @@ function bfs(v) {
 
   while (queue.length) {
     const node = queue.shift();
-    result += node + " ";
+    result.push(node);
 
     for (let i = 1; i <= N; i++) {
       if (visited[i] === 0 && graph[node][i]) {
@@ -72,5 +70,5 @@ function bfs(v) {
   return result;
 }
 
-console.log(dfs(V));
-console.log(bfs(V).trimEnd());
+console.log(dfs(V).join(" "));
+console.log(bfs(V).join(" "));

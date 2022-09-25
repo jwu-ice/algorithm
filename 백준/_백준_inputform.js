@@ -3,7 +3,8 @@
 //   .toString()
 //   .trim()
 //   .split(" ")
+//	 .map(Number)
 
-const input = `5 8 4`.toString().trim().split(" ");
+const input = `5 8 4`.toString().trim().split(" ").map(Number);
 
 console.log(input);

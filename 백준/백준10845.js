@@ -1,33 +1,63 @@
-var fs = require("fs");
-var input = fs
-  .readFileSync("dev/stdin")
+// const input = require("fs")
+//   .readFileSync("/dev/stdin")
+//   .toString()
+//   .trim()
+//   .split("\n")
+//   .slice(1);
+
+const input = `15
+push 1
+push 2
+front
+back
+size
+empty
+pop
+pop
+pop
+size
+empty
+pop
+push 3
+empty
+front`
   .toString()
   .trim()
-  .split("\n")
-  .map((a) => a);
+  .split("\n");
 
-// 계산식
-const countInput = +input[0];
-let stack = [];
+let queue = [];
 let result = "";
 
-for (let i = 1; i <= countInput; i++) {
+for (let i = 1; i <= input[0]; i++) {
   const command = input[i].split(" ");
+  switch (command[0]) {
+    case "push":
+      queue.push(command[1]);
+      break;
 
-  if (command[0] === "push") stack.push(input[i][5]);
-  else if (command[0] === "pop")
-    stack.length ? (result += `${stack.shift()}\n`) : (result += `-1\n`);
-  else if (command[0] === "size") result += `${stack.length}\n`;
-  else if (command[0] === "empty")
-    stack.length ? (result += `0\n`) : (result += `1\n`);
-  else if (command[0] === "front")
-    stack.length ? (result += `${stack[0]}\n`) : (result += `-1\n`);
-  else
-    stack.length
-      ? (result += `${stack[stack.length - 1]}\n`)
-      : (result += `-1\n`);
+    case "pop":
+      result += `${queue.length ? queue.shift() : -1}\n`;
+      break;
+
+    case "size":
+      result += `${queue.length}\n`;
+      break;
+
+    case "empty":
+      result += `${!queue.length ? 1 : 0}\n`;
+      break;
+
+    case "front":
+      result += `${queue.length ? queue[0] : -1}\n`;
+      break;
+
+    case "back":
+      result += `${queue.length ? queue[queue.length - 1] : -1}\n`;
+      break;
+
+    default:
+      break;
+  }
 }
-result = result.trim();
-console.log(result);
 
-// 큐를 구현해서 만들었어야 했나보당
+console.log(result.trimEnd());

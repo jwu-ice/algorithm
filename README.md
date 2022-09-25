@@ -14,7 +14,7 @@
 ---
 
 풀이과정과 느낀점은
-[🍊 Notion Link](https://url.kr/hcw86g)
+[🍊 Notion Link](https://jwuu.notion.site/5b44ef5fc37c4b979535406aba51145f)
 `알고리즘 태그`로 구분하고 있습니다.
 
 

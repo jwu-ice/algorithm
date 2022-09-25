@@ -21,10 +21,11 @@ const lines = input
 
 let left = 0;
 let right = lines[lines.length - 1];
+let mid;
 
 // 자른 숫자가 N-1 이면서 최대값일 때 +1 한 값으로 멈추기
 while (left <= right) {
-  let mid = Math.floor((left + right) / 2);
+  mid = Math.floor((left + right) / 2);
   let pieces = lines.reduce((prev, curr) => prev + Math.floor(curr / mid), 0);
 
   if (pieces >= N) {

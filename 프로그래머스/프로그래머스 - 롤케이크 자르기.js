@@ -3,6 +3,7 @@ function solution(topping) {
     prev[curr] = prev[curr] + 1 || 1;
     return prev;
   }, {});
+  console.log(" status", status);
 
   let chulsoo = new Set();
   let brotherCount = Object.keys(status).length;

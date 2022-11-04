@@ -5,11 +5,13 @@ function solution(w, h) {
   for (let i = 1; i <= w; i++) {
     if (!(w % i)) w_divisor[i] = i;
   }
+
   for (let i = 1; i <= h; i++) {
     if (!(h % i)) {
       if (w_divisor[i] === i) maxSameDivisor = i;
     }
   }
+
   return w * h - (w + h - maxSameDivisor);
 }
 

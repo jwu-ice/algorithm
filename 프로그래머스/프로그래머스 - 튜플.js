@@ -1,5 +1,5 @@
 const solution = (s) =>
-  JSON.parse(s.replace(/[{}]/g, replacer))
+  JSON.parse(s.replace(findValue(replaceValue), replacer))
     .sort(sortLength)
     .reduce(pushSetArray, []);
 
@@ -7,6 +7,9 @@ const replaceValue = {
   "{": "[",
   "}": "]",
 };
+
+const findValue = (replaces) =>
+  new RegExp(`[${Object.keys(replaces).join("")}]`, "g");
 
 const replacer = (target) => replaceValue[target];
 
